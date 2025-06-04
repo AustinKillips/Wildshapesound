@@ -8,26 +8,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Main container with background -->
     <div class="background-container">
-        <header>
-            <div class="logo">
-                <h1><a href="index.html">WILD SHAPE SOUND</a></h1>
+        <!-- Content container -->
+        <div class="content-wrapper">
+            <header>
+                <header>
+                    <div class="logo">
+                        <h1><a href="index.html">WILD SHAPE SOUND</a></h1>
+                    </div>
+                    <div class="tagline">
+                        <p>a queer-owned post sound studio in Ridgewood-Queens, NY</p>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a class="navigation" href="about.html">about</a></li>
+                            <li><a class="navigation" href="services.html">services</a></li>
+                            <a href="#" class="navigation" id="openPopup">contact</a>            
+                    </nav>
+                       <!-- Popup Overlay -->
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup-content">
+                <button class="close-btn" id="closePopup">&times;</button>
+                
+                <div class="success-message" id="successMessage">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+    
+                <section class="contact-section">
+                    <div class="contact-intro">
+                      <h2 class="contact-title">Hi!</h2>
+                      <p style="font-style:italic">we would love to hear about your project</p>
+                    </div>
+                  
+                    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="form">
+                  
+                      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                      <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+                      <input type="hidden" name="from_name" value="My Website" />
+                      <input type="checkbox" name="botcheck" id="" style="display: none;" />
+                  
+                      <div class="form-group-container">
+                        <div class="form-group">
+                          <label for="email" class="form-label"></label>
+                          <input id="email" name="email" class="form-input" placeholder="input your email here" type="email" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="message" class="form-label"></label>
+                          <textarea class="form-textarea" id="message" name="message" 
+                          placeholder="let us know what you would like to collaborate on" required></textarea>
+                        </div>
+                      </div>
+                      <button class="form-submit" type="submit">click to send</button>
+                    </form>
+                  
+                </section>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="about.html" class="active">about</a></li>
-                    <li><a href="services.html">services</a></li>
-                </ul>
-            </nav>
+        </div>         
+            </header>
         </header>
 
         <main>
             <div class="about-content">
-                <div class="about-column">
+                <div class="about-column-wren">
                     <p>
-                        <strong>Wren Stark Haven</strong> is a filmmaker living and working in Queens, New York. 
+                        <strong>Wren Stark Haven</strong> is a filmmaker living and sound-designer working in Queens, New York. 
                         Her films are usually whimsical, hopefully funny, and unanimously 
                         ridiculous. She holds an MFA from NYU Tisch's Grad Film program and 
                         teaches there as an adjunct professor of the arts. She is the co-owner 
@@ -37,11 +85,11 @@
                     </p>
                 </div>
                 
-                <div class="about-column">
+                <div class="about-column-lily">
                     <p>
                         <strong>Lily Cunningham Perini</strong> is a producer and sound mixer based in Brooklyn, 
                         NY. Her work in sound has taken her to sets across the country and the 
-                        world: froizona to Chile and Egypt. She has produced commercials 
+                        world: from Arizona to Chile and Egypt. She has produced commercials 
                         and digital ads in LA and sound designed films that premiered at Tribeca, 
                         BFI Flare, and Aspen Film Festivals. She graduated from Harvard with a B.A. 
                         in Art, Film, and Visual Studies, where she won the Chris Killip Award for 
@@ -50,10 +98,81 @@
                 </div>
             </div>
         </main>
-
+        <div class="details">
+            <p>1639 Centre St #280, Ridgewood, NY 11385<br>wildshapesound@gmail.com <a href="mailto:wildshapesound@gmail.com"></p>         
+            </div>
         <footer>
             <!-- Footer content would go here -->
         </footer>
     </div>
 </body>
-</html>m Ar
+<script>
+    // Get elements
+    const openPopupBtn = document.getElementById('openPopup');
+    const closePopupBtn = document.getElementById('closePopup');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const form = document.getElementById('form');
+    const successMessage = document.getElementById('successMessage');
+
+    // Open popup
+    openPopupBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        popupOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close popup
+    function closePopup() {
+        popupOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.reset(); // Clear form
+        successMessage.style.display = 'none'; // Hide success message
+    }
+
+    closePopupBtn.addEventListener('click', closePopup);
+
+    // Close popup when clicking outside the form
+    popupOverlay.addEventListener('click', function(e) {
+        if (e.target === popupOverlay) {
+            closePopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+            closePopup();
+        }
+    });
+
+    // Handle form submission
+    const contactForm = document.querySelector('.contact-form');
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (response.ok) {
+                successMessage.style.display = 'block';
+                contactForm.style.display = 'none';
+                setTimeout(() => {
+                    closePopup();
+                    contactForm.style.display = 'block';
+                }, 2000);
+            } else {
+                alert('There was an error sending your message. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        }
+    });
+</script>
+</html>
