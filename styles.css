@@ -35,7 +35,7 @@
 body, html {
     height: 100%;
     font-family: 'work-sans', sans-serif;
-    background-color: black;
+    background-color:#f8f8f8;
     overflow-x: hidden;
 }
 
@@ -482,7 +482,7 @@ padding: 1rem;
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
     .background-container::before {
         background-image: url('bg-768-wide.webp');
-        background-size: contain;
+        background-size: cover;
         background-position: center top;
         background-color: #f8f8f8;
     }
@@ -512,7 +512,7 @@ padding: 1rem;
 @media (min-width: 375px) and (max-width: 413px) and (orientation: portrait) {
     .background-container::before {
         background-image: url('bg-375.webp');
-        background-size: 120%;
+        background-size: cover 120%;
         background-position: center 25%;
     }
 }
