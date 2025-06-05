@@ -14,6 +14,11 @@
    --primary-color: rgba(108, 206, 83, 0.836);
    --secondary-color: rgba(250, 231, 66, 0.99);
 
+   --bg-desktop: url('bg-1080.webp');
+    --bg-tablet: url('bg-768-wide.webp');
+    --bg-mobile: url('bg-414.webp');
+    --bg-small: url('bg-375.webp');
+
 }
   
 * {
@@ -51,13 +56,13 @@ body, html {
     scale: ;
     width: 100%;
     height: 100%;
-    background-image: url('bg-4k.png');
+    background-image: url('bg-1080.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: 1; /* You can adjust opacity here without affecting text */
-    opacity: .9; /* Change this value to adjust background opacity */
+    opacity: .8; /* Change this value to adjust background opacity */
 }
 
 /* Content wrapper */
@@ -447,42 +452,34 @@ padding: 1rem;
 
 /* Responsive styles */
 /* Standard Desktop - Most common desktop resolution */
+
+@media (min-width: 2560){
+    .background-container::before {
+        background-image: url('bg-4k.webp');
+        background-size: cover;
+        background-position: center center;
+    }
+}
 @media (min-width: 1920px) and (max-width: 2559) {
     .background-container::before {
-        background-image: url('bg-1080.png');
+        background-image: url('bg-1080.webp');
         background-size: cover;
         background-position: center center;
     }
-}
-@media (min-width: 1440px) and (max-width: 1919px) {
-    .background-container::before {
-        background-image: url('bg-1080.png');
-        background-size: cover;
-        background-position: center center;
-    }
-}
 
 /* Laptop screens - 1366px is very common */
 @media (min-width: 1024px) and (max-width: 1439px) {
     .background-container::before {
-        background-image: url('bg-768-wide.png');
+        background-image: url('bg-768-wide.webp');
         background-size: cover;
         background-position: center center;
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-    .background-container::before {
-        background-image: url('bg-768-wide.png');
-        background-size: cover;
-        background-position: center bottom; /* Focus on furniture */
     }
 }
 
 /* Tablets in portrait */
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
     .background-container::before {
-        background-image: url('bg-768-wide.png');
+        background-image: url('bg-768-wide.webp');
         background-size: contain;
         background-position: center top;
         background-color: #f8f8f8;
@@ -491,7 +488,7 @@ padding: 1rem;
 
 @media (min-width: 568px) and (max-width: 767px) and (orientation: landscape) {
     .background-container::before {
-        background-image: url('bg-414.png');
+        background-image: url('bg-414.webp');
         background-size: cover;
         background-position: 40% center; /* Focus on seating area */
     }
@@ -504,7 +501,7 @@ padding: 1rem;
     padding: 1.5rem;
 }
     .background-container::before {
-        background-image: url('bg-414.png');
+        background-image: url('bg-414.webp');
         background-size: cover;
         background-position: center 30%; /* Show upper furniture area */
     }
@@ -512,7 +509,7 @@ padding: 1rem;
 
 @media (min-width: 375px) and (max-width: 413px) and (orientation: portrait) {
     .background-container::before {
-        background-image: url('bg-375.png');
+        background-image: url('bg-375.webp');
         background-size: 120%;
         background-position: center 25%;
     }
@@ -521,19 +518,12 @@ padding: 1rem;
 /* Small phones */
 @media (max-width: 374px) {
     .background-container::before {
-        background-image: url('bg-375.png');
+        background-image: url('bg-375.webp');
         background-size: cover;
         background-position: center 20%;
         /* Slightly more transparent for readability */
     }
 }
-
-@media (min-width: 1440px) and (max-width: 1680px) and (-webkit-min-device-pixel-ratio: 2) {
-    .background-container::before {
-        background-image: url('bg-1080.png');
-        background-size: cover;
-        background-position: center center;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
