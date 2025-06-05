@@ -447,6 +447,7 @@ padding: 1rem;
     border-radius: 5px;
     margin-bottom: 20px;
     border: 1px solid #c3e6cb;
+    z-index: 100;
 }
 
 
