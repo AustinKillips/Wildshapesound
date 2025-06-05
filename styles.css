@@ -453,7 +453,7 @@ padding: 1rem;
 /* Responsive styles */
 /* Standard Desktop - Most common desktop resolution */
 
-@media (min-width: 2560){
+@media (min-width: 2560px){
     .background-container::before {
         background-image: url('bg-4k.webp');
         background-size: cover;
@@ -466,9 +466,10 @@ padding: 1rem;
         background-size: cover;
         background-position: center center;
     }
+}
 
 /* Laptop screens - 1366px is very common */
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) {
     .background-container::before {
         background-image: url('bg-768-wide.webp');
         background-size: cover;
@@ -524,11 +525,10 @@ padding: 1rem;
         /* Slightly more transparent for readability */
     }
 }
-}
 
 @media (min-width: 768px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
     .background-container::before {
-        background-image: url('bg-1080-square.png');
+        background-image: url('bg-1080-square.webp');
         background-size: cover;
         background-position: center center;
     }
